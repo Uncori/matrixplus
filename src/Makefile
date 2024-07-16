@@ -2,10 +2,10 @@ CC = g++
 CPPFLAGS = -lgtest -std=c++17
 CHECKFLAGS = -Wall -Werror -Wextra
 
-all: s21_matrix_oop.a
+all: matrix_oop.a
 
 test: 
-	@${CC} main.cpp s21_matrix_oop.cpp ${CHECKFLAGS} ${CPPFLAGS} -o main
+	@${CC} main.cpp matrix_oop.cpp ${CHECKFLAGS} ${CPPFLAGS} -o main
 	@./main
 
 %.o: %.cpp
@@ -18,7 +18,7 @@ test:
 clean:
 	@/bin/rm -rf *.o *.a main *.gcno *gcda report *.info main *.out
 
-gcov_report: main.cpp s21_matrix_oop.cpp
+gcov_report: main.cpp matrix_oop.cpp
 	@$(CC) --coverage $^ ${CPPFLAGS} ${CHECKFLAGS} -o main
 	@./main
 	@lcov -t "main" -o main.info -c -d ./
